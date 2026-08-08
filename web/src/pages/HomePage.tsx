@@ -5,6 +5,7 @@ import {
   ProductNotificationShot,
 } from '../components/ProductShots'
 import { PlayStoreBadge } from '../components/PlayStoreBadge'
+import { ShadePreview } from '../components/ShadePreview'
 import './HomePage.css'
 
 const BASE = import.meta.env.BASE_URL
@@ -90,9 +91,8 @@ export function HomePage() {
           </p>
         </div>
 
-        <div id="preview" className="hero-shot">
-          <ProductAppScreenshot />
-          <p className="hero-shot__caption">Actual CineShade app on Android</p>
+        <div id="preview">
+          <ShadePreview />
         </div>
 
         <div className="auditorium__cta">
