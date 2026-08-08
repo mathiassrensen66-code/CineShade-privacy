@@ -124,6 +124,40 @@
   font-weight: 600;
 }
 
+.privacy__summary {
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(201, 169, 98, 0.22);
+  background: rgba(201, 169, 98, 0.07);
+  color: var(--cream-muted);
+}
+
+.privacy__doc code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.88em;
+  color: var(--marquee);
+}
+
+.privacy__doc a {
+  color: var(--marquee);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy__doc a:hover {
+  color: var(--cream);
+}
+
+.privacy__url {
+  font-size: 0.88rem;
+  color: rgba(242, 235, 224, 0.45);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  word-break: break-all;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
