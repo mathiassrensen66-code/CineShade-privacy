@@ -576,12 +576,29 @@
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-.showcase__frame img {
+#preview.hero-shot {
+  width: min(100%, 360px);
+  margin: 0 auto;
+}
+
+.hero-shot__caption {
+  margin-top: 0.85rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(242, 235, 224, 0.42);
+  letter-spacing: 0.06em;
+}
+
+.hero-shot .product-phone {
+  aspect-ratio: 9 / 19.5;
+  height: auto;
+}
+
+.showcase__frame .product-phone {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
+  padding: 6px;
+  border-radius: 18px;
 }
 
 .showcase__copy {

@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
-import { InStreamDemo } from '../components/InStreamDemo'
+import {
+  ProductAdjustShot,
+  ProductAppScreenshot,
+  ProductNotificationShot,
+} from '../components/ProductShots'
 import { PlayStoreBadge } from '../components/PlayStoreBadge'
 import './HomePage.css'
 
@@ -35,23 +39,23 @@ const STREAMING_APPS = [
 const APP_SHOTS = [
   {
     step: '01',
-    src: 'showcase/showcase-step-1.png',
+    shot: 'app' as const,
     title: 'Set your shade',
-    text: 'Pick darkness in the preview, then arm the dimmer before you open a stream.',
+    text: 'Real CineShade app — preview darkness, then tap Arm dimmer for other apps.',
   },
   {
     step: '02',
-    src: 'showcase/showcase-step-2.png',
-    title: 'Dim over any stream',
-    text: 'The overlay sits on top of Netflix, YouTube, and more — taps still reach the player.',
+    shot: 'adjust' as const,
+    title: 'Adjust over your stream',
+    text: 'Exact adjust panel from the app — opens when you tap the CineShade notification.',
   },
   {
     step: '03',
-    src: 'showcase/showcase-step-3.png',
-    title: 'Adjust from notifications',
-    text: 'Pull down and tap CineShade to reopen the panel or turn the dimmer off.',
+    shot: 'notif' as const,
+    title: 'Control from notifications',
+    text: 'Same notification text and actions as the live app: Adjust or Turn off.',
   },
-] as const
+]
 
 export function HomePage() {
   return (
@@ -86,8 +90,9 @@ export function HomePage() {
           </p>
         </div>
 
-        <div id="preview">
-          <InStreamDemo />
+        <div id="preview" className="hero-shot">
+          <ProductAppScreenshot />
+          <p className="hero-shot__caption">Actual CineShade app on Android</p>
         </div>
 
         <div className="auditorium__cta">
@@ -126,15 +131,17 @@ export function HomePage() {
         <div className="showcase__head">
           <p className="showcase__kicker">On your phone</p>
           <h2>Arm, stream, adjust</h2>
-          <p className="showcase__lead">Three steps — same flow every time you watch.</p>
+          <p className="showcase__lead">Real app screenshot plus UI taken directly from the shipping product.</p>
         </div>
         <ul className="showcase__grid">
-          {APP_SHOTS.map(({ step, src, title, text }) => (
+          {APP_SHOTS.map(({ step, shot, title, text }) => (
             <li key={step} className="showcase__item">
               <div className="showcase__card">
                 <span className="showcase__step">{step}</span>
                 <div className="showcase__frame">
-                  <img src={`${BASE}${src}`} alt={title} loading="lazy" />
+                  {shot === 'app' && <ProductAppScreenshot />}
+                  {shot === 'adjust' && <ProductAdjustShot />}
+                  {shot === 'notif' && <ProductNotificationShot />}
                 </div>
                 <div className="showcase__copy">
                   <h3>{title}</h3>
