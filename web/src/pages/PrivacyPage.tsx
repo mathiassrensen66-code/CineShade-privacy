@@ -4,6 +4,7 @@ import {
   PRIVACY_PACKAGE,
   PRIVACY_PLAY_URL,
   PRIVACY_PUBLIC_URL,
+  PRIVACY_SITE_URL,
 } from '../content/privacyPolicy'
 import './PrivacyPage.css'
 
@@ -166,8 +167,9 @@ export function PrivacyPage() {
           for this app.
         </p>
         <p className="privacy__url">
-          Public URL for this policy:{' '}
-          <a href={PRIVACY_PUBLIC_URL}>{PRIVACY_PUBLIC_URL}</a>
+          Site: <a href={PRIVACY_SITE_URL}>{PRIVACY_SITE_URL}</a>
+          <br />
+          Public policy URL: <a href={PRIVACY_PUBLIC_URL}>{PRIVACY_PUBLIC_URL}</a>
         </p>
       </article>
     </div>

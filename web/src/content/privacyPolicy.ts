@@ -3,8 +3,10 @@ export const PRIVACY_LAST_UPDATED = 'August 8, 2026'
 
 export const PRIVACY_PACKAGE = 'com.cineshade.app'
 
+export const PRIVACY_SITE_URL = 'https://cineshade.app'
+
 export const PRIVACY_PLAY_URL =
   'https://play.google.com/store/apps/details?id=com.cineshade.app'
 
-export const PRIVACY_PUBLIC_URL =
-  'https://mathiassrensen66-code.github.io/CineShade-privacy/privacy.html'
+/** Use this URL in Google Play Console store listing. */
+export const PRIVACY_PUBLIC_URL = 'https://cineshade.app/privacy.html'
