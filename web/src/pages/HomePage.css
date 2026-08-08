@@ -153,9 +153,9 @@
 }
 
 /* —— Screen + letterbox —— */
-.screen-wrap {
+.screen-wrap,
+.shade-preview {
   width: min(100%, 920px);
-  animation: screenReveal 1.2s var(--ease) 0.28s both;
 }
 
 .letterbox {
@@ -188,6 +188,14 @@
     radial-gradient(ellipse at 50% 100%, rgba(20, 30, 60, 0.8), transparent 55%),
     linear-gradient(145deg, #1a1528 0%, #0d1118 40%, #18120e 100%);
   animation: sceneDrift 22s ease-in-out infinite alternate;
+}
+
+.screen__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .screen__haze {
@@ -359,6 +367,171 @@
   letter-spacing: 0.06em;
 }
 
+.btn-marquee--solid {
+  background: var(--marquee);
+  color: var(--void);
+}
+
+.btn-marquee--solid:hover {
+  background: var(--cream);
+  color: var(--void);
+  box-shadow: 0 0 40px rgba(201, 169, 98, 0.35);
+}
+
+/* —— Streaming apps —— */
+.streaming {
+  position: relative;
+  z-index: 5;
+  padding: clamp(4rem, 10vh, 6rem) clamp(1.25rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.45));
+}
+
+.streaming__head {
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.streaming__kicker,
+.showcase__kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--marquee);
+  margin-bottom: 0.75rem;
+}
+
+.streaming__head h2,
+.showcase__head h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  margin-bottom: 0.85rem;
+}
+
+.streaming__lead {
+  color: var(--cream-muted);
+  font-size: clamp(0.98rem, 2vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.streaming__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.75rem, 2vw, 1rem);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.streaming__card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #121820;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.streaming__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 98, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.streaming__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.streaming__card-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.82) 100%);
+  pointer-events: none;
+}
+
+.streaming__card-name {
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 1;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+.streaming__cta {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+/* —— App showcase —— */
+.showcase {
+  position: relative;
+  z-index: 5;
+  padding: clamp(4rem, 10vh, 6rem) clamp(1.25rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.showcase__head {
+  text-align: center;
+  max-width: 28rem;
+  margin: 0 auto 2.5rem;
+}
+
+.showcase__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.showcase__item {
+  text-align: center;
+}
+
+.showcase__frame {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0a0a0d;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  margin-bottom: 1.1rem;
+}
+
+.showcase__frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.showcase__item h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 0.45rem;
+  color: var(--cream);
+}
+
+.showcase__item p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--cream-muted);
+  max-width: 26ch;
+  margin: 0 auto;
+}
+
 /* —— Acts —— */
 .acts {
   position: relative;
@@ -501,17 +674,34 @@
   }
 }
 
+@media (max-width: 900px) {
+  .streaming__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .showcase__grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
 @media (max-width: 768px) {
   .acts__grid {
     grid-template-columns: 1fr;
   }
 
-  .cinema__links a:not(.cinema__ticket) {
+  .cinema__links a:not(.cinema__ticket):not([href='#preview']) {
     display: none;
   }
 
   .credits__row {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .streaming__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
