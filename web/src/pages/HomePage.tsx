@@ -34,22 +34,24 @@ const STREAMING_APPS = [
 
 const APP_SHOTS = [
   {
-    kind: 'image' as const,
-    src: 'cta/play-screenshot-1-main.png',
+    step: '01',
+    src: 'showcase/showcase-step-1.png',
     title: 'Set your shade',
-    text: 'Preview darkness in CineShade, then arm the dimmer before you open a stream.',
+    text: 'Pick darkness in the preview, then arm the dimmer before you open a stream.',
   },
   {
-    kind: 'demo' as const,
-    title: 'Adjust while you stream',
-    text: 'Tap the CineShade notification — this bottom panel opens over Netflix, YouTube, and more.',
+    step: '02',
+    src: 'showcase/showcase-step-2.png',
+    title: 'Dim over any stream',
+    text: 'The overlay sits on top of Netflix, YouTube, and more — taps still reach the player.',
   },
   {
-    kind: 'notif' as const,
-    title: 'Notification stays ready',
-    text: 'Pull down the shade anytime to reopen the slider. Touches still pass through to the player.',
+    step: '03',
+    src: 'showcase/showcase-step-3.png',
+    title: 'Adjust from notifications',
+    text: 'Pull down and tap CineShade to reopen the panel or turn the dimmer off.',
   },
-]
+] as const
 
 export function HomePage() {
   return (
@@ -124,34 +126,21 @@ export function HomePage() {
         <div className="showcase__head">
           <p className="showcase__kicker">On your phone</p>
           <h2>Arm, stream, adjust</h2>
+          <p className="showcase__lead">Three steps — same flow every time you watch.</p>
         </div>
         <ul className="showcase__grid">
-          {APP_SHOTS.map((item) => (
-            <li key={item.title} className="showcase__item">
-              <div className={`showcase__frame${item.kind === 'demo' ? ' showcase__frame--demo' : ''}`}>
-                {item.kind === 'image' && (
-                  <img src={`${BASE}${item.src}`} alt={item.title} loading="lazy" />
-                )}
-                {item.kind === 'demo' && <InStreamDemo compact />}
-                {item.kind === 'notif' && (
-                  <div className="showcase__notif" aria-hidden="true">
-                    <div className="showcase__notif-bar">
-                      <span className="showcase__notif-icon">◐</span>
-                      <div>
-                        <strong>CineShade · 52% dark</strong>
-                        <p>Tap to open slider</p>
-                      </div>
-                    </div>
-                    <div className="showcase__notif-actions">
-                      <span>Adjust</span>
-                      <span>Turn off</span>
-                    </div>
-                    <p className="showcase__notif-hint">Shown while the dimmer is armed</p>
-                  </div>
-                )}
+          {APP_SHOTS.map(({ step, src, title, text }) => (
+            <li key={step} className="showcase__item">
+              <div className="showcase__card">
+                <span className="showcase__step">{step}</span>
+                <div className="showcase__frame">
+                  <img src={`${BASE}${src}`} alt={title} loading="lazy" />
+                </div>
+                <div className="showcase__copy">
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
               </div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
             </li>
           ))}
         </ul>
