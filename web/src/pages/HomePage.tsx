@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
+import { InStreamDemo } from '../components/InStreamDemo'
 import { PlayStoreBadge } from '../components/PlayStoreBadge'
-import { ShadePreview } from '../components/ShadePreview'
 import './HomePage.css'
 
 const BASE = import.meta.env.BASE_URL
@@ -34,21 +34,22 @@ const STREAMING_APPS = [
 
 const APP_SHOTS = [
   {
+    kind: 'image' as const,
     src: 'cta/play-screenshot-1-main.png',
     title: 'Set your shade',
-    text: 'Preview darkness on a sample still before you arm the dimmer.',
+    text: 'Preview darkness in CineShade, then arm the dimmer before you open a stream.',
   },
   {
-    src: 'cta/play-screenshot-2-armed.png',
-    title: 'Arm and go',
-    text: 'Overlay kicks in when you switch to your streaming app.',
+    kind: 'demo' as const,
+    title: 'Adjust while you stream',
+    text: 'Tap the CineShade notification — this bottom panel opens over Netflix, YouTube, and more.',
   },
   {
-    src: 'cta/play-screenshot-3-usecase.png',
-    title: 'Adjust anytime',
-    text: 'Pull down notifications to tweak darkness without leaving the player.',
+    kind: 'notif' as const,
+    title: 'Notification stays ready',
+    text: 'Pull down the shade anytime to reopen the slider. Touches still pass through to the player.',
   },
-] as const
+]
 
 export function HomePage() {
   return (
@@ -83,7 +84,7 @@ export function HomePage() {
         </div>
 
         <div id="preview">
-          <ShadePreview />
+          <InStreamDemo />
         </div>
 
         <div className="auditorium__cta">
@@ -124,13 +125,32 @@ export function HomePage() {
           <h2>Arm, stream, adjust</h2>
         </div>
         <ul className="showcase__grid">
-          {APP_SHOTS.map(({ src, title, text }) => (
-            <li key={src} className="showcase__item">
-              <div className="showcase__frame">
-                <img src={`${BASE}${src}`} alt={title} loading="lazy" />
+          {APP_SHOTS.map((item) => (
+            <li key={item.title} className="showcase__item">
+              <div className={`showcase__frame${item.kind === 'demo' ? ' showcase__frame--demo' : ''}`}>
+                {item.kind === 'image' && (
+                  <img src={`${BASE}${item.src}`} alt={item.title} loading="lazy" />
+                )}
+                {item.kind === 'demo' && <InStreamDemo compact />}
+                {item.kind === 'notif' && (
+                  <div className="showcase__notif" aria-hidden="true">
+                    <div className="showcase__notif-bar">
+                      <span className="showcase__notif-icon">◐</span>
+                      <div>
+                        <strong>CineShade · 52% dark</strong>
+                        <p>Tap to open slider</p>
+                      </div>
+                    </div>
+                    <div className="showcase__notif-actions">
+                      <span>Adjust</span>
+                      <span>Turn off</span>
+                    </div>
+                    <p className="showcase__notif-hint">Shown while the dimmer is armed</p>
+                  </div>
+                )}
               </div>
-              <h3>{title}</h3>
-              <p>{text}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </li>
           ))}
         </ul>
