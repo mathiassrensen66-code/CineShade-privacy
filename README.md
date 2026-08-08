@@ -1,8 +1,8 @@
 ﻿# CineShade site
 
-Public landing page + privacy policy for CineShade.
+React landing + privacy for CineShade (separate from the private app repo).
 
-- Landing: https://mathiassrensen66-code.github.io/CineShade-privacy/
-- Privacy: https://mathiassrensen66-code.github.io/CineShade-privacy/privacy.html
+- Site: https://mathiassrensen66-code.github.io/CineShade-privacy/
+- Privacy: https://mathiassrensen66-code.github.io/CineShade-privacy/privacy
 
-This repo is separate from the private app source.
+Source: `/web` (Vite + React). Deploy by building `web` and copying `dist` to repo root.

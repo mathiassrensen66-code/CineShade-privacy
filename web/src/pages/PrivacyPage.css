@@ -1,0 +1,102 @@
+.privacy {
+  position: relative;
+  min-height: 100vh;
+  padding: 1.25rem clamp(1.25rem, 4vw, 3rem) 3rem;
+  isolation: isolate;
+}
+
+.privacy__glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 50% 40% at 10% 0%, rgba(107, 43, 184, 0.2), transparent 50%),
+    linear-gradient(180deg, #0a0a0f, #050507 60%);
+}
+
+.privacy__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+}
+
+.privacy__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: Syne, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.privacy__brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+}
+
+.privacy__back {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.privacy__back:hover {
+  color: var(--ink);
+}
+
+.privacy__doc {
+  max-width: 40rem;
+  margin: 0 auto;
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.privacy__doc h1 {
+  font-family: Syne, sans-serif;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.privacy__meta {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.privacy__doc h2 {
+  font-family: Syne, sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  margin: 1.75rem 0 0.55rem;
+}
+
+.privacy__doc p,
+.privacy__doc li {
+  color: #d8d0c6;
+  line-height: 1.6;
+}
+
+.privacy__doc ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.privacy__doc li {
+  margin: 0.35rem 0;
+}
+
+.privacy__doc strong {
+  color: var(--ink);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
