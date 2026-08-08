@@ -1,96 +1,124 @@
 .privacy {
-  position: relative;
   min-height: 100vh;
-  padding: 1.25rem clamp(1.25rem, 4vw, 3rem) 3rem;
-  isolation: isolate;
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 169, 98, 0.05), transparent 50%),
+    linear-gradient(180deg, var(--void) 0%, var(--room) 100%);
 }
 
-.privacy__glow {
+.privacy::before {
+  content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse 50% 40% at 10% 0%, rgba(107, 43, 184, 0.2), transparent 50%),
-    linear-gradient(180deg, #0a0a0f, #050507 60%);
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.privacy__top {
+.privacy__nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: 40rem;
-  margin: 0 auto 2rem;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+  background: rgba(5, 5, 6, 0.88);
+  backdrop-filter: blur(12px);
 }
 
-.privacy__brand {
+.privacy__mark {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: Syne, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
 }
 
-.privacy__brand img {
+.privacy__mark img {
   width: 28px;
   height: 28px;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 .privacy__back {
-  color: var(--muted);
-  font-size: 0.95rem;
+  color: var(--cream-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
 }
 
 .privacy__back:hover {
-  color: var(--ink);
+  color: var(--cream);
 }
 
 .privacy__doc {
+  position: relative;
   max-width: 40rem;
   margin: 0 auto;
-  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  padding: clamp(2.5rem, 8vh, 4.5rem) clamp(1.25rem, 4vw, 2rem) 5rem;
+  animation: fadeUp 0.7s var(--ease) both;
+}
+
+.privacy__kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--marquee);
+  margin-bottom: 0.75rem;
 }
 
 .privacy__doc h1 {
-  font-family: Syne, sans-serif;
-  font-size: clamp(2rem, 5vw, 2.6rem);
-  letter-spacing: -0.04em;
-  margin-bottom: 0.4rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
 .privacy__meta {
-  color: var(--muted);
+  color: var(--cream-muted);
+  font-size: 0.9rem;
   margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .privacy__doc h2 {
-  font-family: Syne, sans-serif;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
-  margin: 1.75rem 0 0.55rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 2rem 0 0.65rem;
+  color: var(--cream);
 }
 
 .privacy__doc p,
 .privacy__doc li {
-  color: #d8d0c6;
-  line-height: 1.6;
+  color: var(--cream-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.privacy__doc p + p {
+  margin-top: 0.85rem;
 }
 
 .privacy__doc ul {
-  padding-left: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-.privacy__doc li {
-  margin: 0.35rem 0;
+  margin: 0.75rem 0 0 1.15rem;
+  display: grid;
+  gap: 0.45rem;
 }
 
 .privacy__doc strong {
-  color: var(--ink);
+  color: var(--cream);
+  font-weight: 600;
 }
 
-@keyframes rise {
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(12px);

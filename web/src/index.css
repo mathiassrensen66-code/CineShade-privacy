@@ -1,20 +1,18 @@
 :root {
-  --bg: #050507;
-  --bg-elevated: #0d0d12;
-  --ink: #f7f3ec;
-  --muted: #9b948a;
-  --line: rgba(247, 243, 236, 0.1);
-  --grad: linear-gradient(135deg, #6b2bb8 0%, #d83b7e 50%, #f05a28 100%);
-  --grad-soft: linear-gradient(
-    135deg,
-    rgba(107, 43, 184, 0.35),
-    rgba(216, 59, 126, 0.22),
-    rgba(240, 90, 40, 0.28)
-  );
-  --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-  color: var(--ink);
-  background: var(--bg);
-  font-family: Outfit, system-ui, sans-serif;
+  --void: #050506;
+  --room: #0a0a0d;
+  --velvet: #1a0a0e;
+  --marquee: #c9a962;
+  --marquee-dim: rgba(201, 169, 98, 0.55);
+  --cream: #f2ebe0;
+  --cream-muted: rgba(242, 235, 224, 0.62);
+  --line: rgba(242, 235, 224, 0.1);
+  --screen-glow: rgba(201, 169, 98, 0.12);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color: var(--cream);
+  background: var(--void);
+  font-family: 'DM Sans', system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +24,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 #root {
@@ -33,7 +35,7 @@ body,
 }
 
 body {
-  background: var(--bg);
+  background: var(--void);
   overflow-x: hidden;
 }
 
@@ -42,12 +44,9 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input {
   font: inherit;
-  border: 0;
-  background: none;
-  color: inherit;
-  cursor: pointer;
 }
 
 img {
@@ -55,7 +54,16 @@ img {
   max-width: 100%;
 }
 
+::selection {
+  background: rgba(201, 169, 98, 0.35);
+  color: var(--cream);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {

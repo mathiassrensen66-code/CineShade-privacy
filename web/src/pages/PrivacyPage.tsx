@@ -4,18 +4,18 @@ import './PrivacyPage.css'
 export function PrivacyPage() {
   return (
     <div className="privacy">
-      <div className="privacy__glow" aria-hidden="true" />
-      <header className="privacy__top">
-        <Link to="/" className="privacy__brand">
+      <header className="privacy__nav">
+        <Link to="/" className="privacy__mark">
           <img src={`${import.meta.env.BASE_URL}icon.png`} alt="" width={28} height={28} />
           CineShade
         </Link>
         <Link to="/" className="privacy__back">
-          ← Back
+          Back to home
         </Link>
       </header>
 
       <article className="privacy__doc">
+        <p className="privacy__kicker">Legal</p>
         <h1>Privacy Policy</h1>
         <p className="privacy__meta">Last updated: August 7, 2026</p>
 
