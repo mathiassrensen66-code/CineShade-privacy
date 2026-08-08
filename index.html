@@ -3,51 +3,202 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CineShade Privacy Policy</title>
+  <title>CineShade — Dim streaming apps your way</title>
+  <meta name="description" content="CineShade darkens the screen over streaming apps when system brightness won't budge. Touch-through. Android." />
+  <link rel="icon" href="icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      max-width: 40rem;
-      margin: 2rem auto;
-      padding: 0 1.25rem 3rem;
-      line-height: 1.55;
-      color: #1a1a1a;
-      background: #f7f4ef;
+    :root {
+      --bg: #070709;
+      --ink: #f4efe8;
+      --muted: #a59e96;
+      --grad: linear-gradient(135deg, #6b2bb8 0%, #d83b7e 48%, #f05a28 100%);
+      --amber: #f0a04a;
     }
-    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
-    .meta { color: #666; margin-bottom: 2rem; }
-    h2 { font-size: 1.15rem; margin-top: 1.75rem; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    .stage {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 1.5rem 2.5rem;
+      isolation: isolate;
+    }
+
+    .stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 35%, rgba(216, 59, 126, 0.22), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 75% 20%, rgba(240, 90, 40, 0.18), transparent 55%),
+        radial-gradient(ellipse 45% 35% at 20% 70%, rgba(107, 43, 184, 0.2), transparent 50%),
+        linear-gradient(180deg, #0c0c10 0%, #070709 70%);
+      z-index: -2;
+      animation: atmosphere 12s ease-in-out infinite alternate;
+    }
+
+    .stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes atmosphere {
+      from { filter: hue-rotate(0deg) saturate(1); transform: scale(1); }
+      to { filter: hue-rotate(12deg) saturate(1.08); transform: scale(1.03); }
+    }
+
+    .hero {
+      width: min(40rem, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mark {
+      width: min(9.5rem, 42vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 1.75rem;
+      border-radius: 22%;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .brand {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 10vw, 4.5rem);
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+    }
+
+    .headline {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      max-width: 18ch;
+      margin: 0 auto 0.85rem;
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+    }
+
+    .support {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      max-width: 32ch;
+      margin: 0 auto 1.75rem;
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.5rem;
+      border-radius: 999px;
+      background: var(--grad);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 12px 40px rgba(216, 59, 126, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 16px 48px rgba(240, 90, 40, 0.4);
+    }
+
+    .cta:active { transform: translateY(0); }
+
+    .note {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: #7a746c;
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: auto;
+      padding-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--ink);
+      border-color: rgba(244, 239, 232, 0.35);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy — CineShade</h1>
-  <p class="meta">Last updated: August 7, 2026</p>
+  <main class="stage">
+    <div class="hero">
+      <img class="mark" src="icon.png" width="1024" height="1024" alt="CineShade app icon" />
+      <h1 class="brand">CineShade</h1>
+      <p class="headline">Dim streaming apps when brightness won’t listen.</p>
+      <p class="support">
+        A touch-through screen shade for Android — watch darker without fighting the player.
+      </p>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.cineshade.app">
+        Get it on Google Play
+      </a>
+      <p class="note">Android · No account · Overlay dimmer</p>
+    </div>
 
-  <p>CineShade (“the app”) is a local screen-dimming utility for Android.</p>
-
-  <h2>What the app does</h2>
-  <p>
-    CineShade draws a translucent overlay on your screen so you can darken content from other apps.
-    It may run a foreground service and show a notification while the dimmer is active.
-  </p>
-
-  <h2>Data we collect</h2>
-  <p><strong>None.</strong> CineShade does not collect, store on our servers, sell, or share personal information.</p>
-  <ul>
-    <li>No account or login</li>
-    <li>No analytics or advertising SDKs</li>
-    <li>No location tracking</li>
-    <li>Dimmer settings stay on your device only</li>
-  </ul>
-
-  <h2>Permissions</h2>
-  <ul>
-    <li><strong>Display over other apps</strong> — required to show the dim overlay</li>
-    <li><strong>Notifications / foreground service</strong> — keeps the dimmer running and lets you turn it off</li>
-    <li><strong>Internet</strong> — may appear due to the app framework; CineShade does not use it to send personal data</li>
-  </ul>
-
-  <h2>Contact</h2>
-  <p>For privacy questions, contact the developer through the Google Play store listing for CineShade.</p>
+    <footer>
+      <a href="privacy.html">Privacy policy</a>
+    </footer>
+  </main>
 </body>
 </html>

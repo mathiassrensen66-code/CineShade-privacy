@@ -1,5 +1,8 @@
-﻿# CineShade Privacy Policy
+﻿# CineShade site
 
-Public privacy policy for the CineShade Android app.
+Public landing page + privacy policy for CineShade.
 
-**Live page:** https://mathiassrensen66-code.github.io/CineShade-privacy/
+- Landing: https://mathiassrensen66-code.github.io/CineShade-privacy/
+- Privacy: https://mathiassrensen66-code.github.io/CineShade-privacy/privacy.html
+
+This repo is separate from the private app source.
