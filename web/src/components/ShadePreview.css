@@ -1,5 +1,5 @@
 .shade-preview {
-  width: min(100%, 920px);
+  width: 100%;
   animation: screenReveal 1.2s var(--ease) 0.28s both;
 }
 
@@ -8,12 +8,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1rem;
   padding: 0 0.25rem;
 }
 
 .shade-preview__hint {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: var(--cream-muted);
   text-align: left;
 }
@@ -60,14 +60,14 @@
 
 .screen__badge {
   position: absolute;
-  top: clamp(0.85rem, 2.5vw, 1.25rem);
-  right: clamp(0.85rem, 2.5vw, 1.25rem);
+  top: clamp(1rem, 3vw, 1.5rem);
+  right: clamp(1rem, 3vw, 1.5rem);
   z-index: 4;
-  padding: 0.35rem 0.75rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.72);
   color: var(--cream);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   letter-spacing: 0.06em;
 }

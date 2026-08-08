@@ -1,0 +1,34 @@
+.play-badge {
+  display: inline-block;
+  line-height: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.play-badge:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.play-badge img {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.play-badge--nav img {
+  height: 40px;
+}
+
+.play-badge--default img {
+  height: 60px;
+}
+
+.play-badge--large img {
+  height: 72px;
+}
+
+@media (max-width: 768px) {
+  .play-badge--large img {
+    height: 60px;
+  }
+}

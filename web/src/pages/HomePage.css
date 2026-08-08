@@ -100,13 +100,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(1rem, 4vh, 2.5rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 8vh, 5rem);
+  padding: clamp(1rem, 4vh, 2.5rem) clamp(0.75rem, 3vw, 2rem) clamp(3rem, 8vh, 5rem);
   text-align: center;
 }
 
 .auditorium__intro {
   max-width: 42rem;
-  margin-bottom: clamp(2rem, 5vh, 3rem);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+#preview {
+  width: min(100%, 1180px);
+  padding: 0 clamp(0.25rem, 2vw, 1rem);
 }
 
 .auditorium__kicker {
@@ -155,11 +160,11 @@
 /* —— Screen + letterbox —— */
 .screen-wrap,
 .shade-preview {
-  width: min(100%, 920px);
+  width: 100%;
 }
 
 .letterbox {
-  height: clamp(12px, 2.5vw, 22px);
+  height: clamp(16px, 3vw, 28px);
   background: #000;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
@@ -175,7 +180,8 @@
 
 .screen__picture {
   position: relative;
-  aspect-ratio: 2.39 / 1;
+  aspect-ratio: 16 / 9;
+  min-height: clamp(280px, 52vw, 520px);
   overflow: hidden;
 }
 
@@ -276,15 +282,15 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
-  gap: 0.5rem 1rem;
+  gap: 0.65rem 1rem;
   align-items: center;
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   padding: 0 0.25rem;
 }
 
 .fader__label {
   grid-column: 1;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -295,7 +301,7 @@
 .fader__value {
   grid-column: 2;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   letter-spacing: 0.08em;
   color: var(--marquee);
 }
@@ -305,7 +311,7 @@
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 2px;
+  height: 4px;
   background: linear-gradient(90deg, var(--marquee-dim), rgba(242, 235, 224, 0.15));
   outline: none;
   cursor: pointer;
@@ -314,8 +320,8 @@
 .fader input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: var(--marquee);
   border-radius: 50%;
   box-shadow: 0 0 12px rgba(201, 169, 98, 0.5);
@@ -327,8 +333,8 @@
 }
 
 .fader input[type='range']::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: var(--marquee);
   border: 0;
   border-radius: 50%;
@@ -470,6 +476,22 @@
 }
 
 .streaming__cta {
+  margin-top: 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.streaming__cta-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-style: italic;
+  color: var(--cream-muted);
+}
+
+.acts__cta {
   margin-top: 2.5rem;
   text-align: center;
 }
@@ -690,7 +712,7 @@
     grid-template-columns: 1fr;
   }
 
-  .cinema__links a:not(.cinema__ticket):not([href='#preview']) {
+  .cinema__links a:not(.play-badge):not([href='#preview']) {
     display: none;
   }
 

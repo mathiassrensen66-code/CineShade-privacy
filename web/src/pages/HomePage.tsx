@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
+import { PlayStoreBadge } from '../components/PlayStoreBadge'
 import { ShadePreview } from '../components/ShadePreview'
 import './HomePage.css'
 
-const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.cineshade.app'
 const BASE = import.meta.env.BASE_URL
 
 const ACTS = [
@@ -65,9 +65,7 @@ export function HomePage() {
           <a href="#preview">Try it</a>
           <a href="#streaming">Streaming apps</a>
           <Link to="/privacy">Privacy</Link>
-          <a className="cinema__ticket" href={PLAY_URL}>
-            Get the app
-          </a>
+          <PlayStoreBadge size="nav" />
         </nav>
       </header>
 
@@ -89,9 +87,7 @@ export function HomePage() {
         </div>
 
         <div className="auditorium__cta">
-          <a className="btn-marquee" href={PLAY_URL}>
-            Get it on Google Play
-          </a>
+          <PlayStoreBadge size="large" />
           <p className="auditorium__note">No account · Local only · Android</p>
         </div>
       </main>
@@ -117,9 +113,8 @@ export function HomePage() {
         </ul>
 
         <div className="streaming__cta">
-          <a className="btn-marquee btn-marquee--solid" href={PLAY_URL}>
-            Works with any streaming app
-          </a>
+          <p className="streaming__cta-text">Works with any streaming app</p>
+          <PlayStoreBadge size="large" />
         </div>
       </section>
 
@@ -155,6 +150,9 @@ export function HomePage() {
             </li>
           ))}
         </ol>
+        <div className="acts__cta">
+          <PlayStoreBadge size="default" />
+        </div>
       </section>
 
       <footer className="credits">
