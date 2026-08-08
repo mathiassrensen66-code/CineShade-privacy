@@ -76,6 +76,10 @@
   color: var(--cream);
 }
 
+.cinema__link-keep {
+  /* kept visible on mobile — see media query below */
+}
+
 .cinema__ticket {
   padding: 0.5rem 1rem;
   border: 1px solid var(--marquee-dim);
@@ -776,7 +780,7 @@
     grid-template-columns: 1fr;
   }
 
-  .cinema__links a:not(.play-badge):not([href='#preview']) {
+  .cinema__links a:not(.play-badge):not([href='#preview']):not(.cinema__link-keep) {
     display: none;
   }
 

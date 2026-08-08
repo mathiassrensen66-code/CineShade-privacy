@@ -64,6 +64,7 @@ export function HomePage() {
         </Link>
         <nav className="cinema__links">
           <a href="#preview">Try it</a>
+          <Link to="/how-to" className="cinema__link-keep">How to</Link>
           <a href="#streaming">Streaming apps</a>
           <Link to="/privacy">Privacy</Link>
           <PlayStoreBadge size="nav" />

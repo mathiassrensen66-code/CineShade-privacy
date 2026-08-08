@@ -9,9 +9,10 @@ export function PrivacyPage() {
           <img src={`${import.meta.env.BASE_URL}icon.png`} alt="" width={28} height={28} />
           CineShade
         </Link>
-        <Link to="/" className="privacy__back">
-          Back to home
-        </Link>
+        <nav className="privacy__links">
+          <Link to="/how-to">How to</Link>
+          <Link to="/">Back to home</Link>
+        </nav>
       </header>
 
       <article className="privacy__doc">
