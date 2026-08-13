@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { assetUrl } from '../lib/assetUrl'
 import {
   ProductAdjustShot,
   ProductAppScreenshot,
@@ -7,8 +8,6 @@ import {
 import { PlayStoreBadge } from '../components/PlayStoreBadge'
 import { ShadePreview } from '../components/ShadePreview'
 import './HomePage.css'
-
-const BASE = import.meta.env.BASE_URL
 
 const ACTS = [
   {
@@ -66,7 +65,7 @@ export function HomePage() {
 
       <header className="cinema__nav">
         <Link to="/" className="cinema__logo">
-          <img src={`${BASE}icon.png`} alt="" width={30} height={30} />
+          <img src={assetUrl('icon.png')} alt="" width={30} height={30} />
           <span>CineShade</span>
         </Link>
         <nav className="cinema__links">
@@ -114,7 +113,7 @@ export function HomePage() {
         <ul className="streaming__grid">
           {STREAMING_APPS.map(({ name, image }) => (
             <li key={name} className="streaming__card">
-              <img src={`${BASE}${image}`} alt="" loading="lazy" />
+              <img src={assetUrl(image)} alt="" loading="lazy" />
               <div className="streaming__card-veil" aria-hidden="true" />
               <span className="streaming__card-name">{name}</span>
             </li>
@@ -175,7 +174,7 @@ export function HomePage() {
       <footer className="credits">
         <div className="credits__row">
           <div className="credits__brand">
-            <img src={`${BASE}icon.png`} alt="" width={22} height={22} />
+            <img src={assetUrl('icon.png')} alt="" width={22} height={22} />
             CineShade
           </div>
           <p>Touch-through overlay dimmer for Android</p>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import { assetUrl } from '../lib/assetUrl'
 import './InStreamDemo.css'
 
-const BASE = import.meta.env.BASE_URL
-const STREAM_STILL = `${BASE}preview/movie-2.jpg`
+const STREAM_STILL = assetUrl('preview/movie-2.jpg')
 const MAX_SHADE = 0.98
 
 type InStreamDemoProps = {

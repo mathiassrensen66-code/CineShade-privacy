@@ -6,6 +6,7 @@ import {
   PRIVACY_PUBLIC_URL,
   PRIVACY_SITE_URL,
 } from '../content/privacyPolicy'
+import { assetUrl } from '../lib/assetUrl'
 import './PrivacyPage.css'
 
 export function PrivacyPage() {
@@ -13,7 +14,7 @@ export function PrivacyPage() {
     <div className="privacy">
       <header className="privacy__nav">
         <Link to="/" className="privacy__mark">
-          <img src={`${import.meta.env.BASE_URL}icon.png`} alt="" width={28} height={28} />
+          <img src={assetUrl('icon.png')} alt="" width={28} height={28} />
           CineShade
         </Link>
         <nav className="privacy__links">

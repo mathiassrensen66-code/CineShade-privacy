@@ -1,8 +1,7 @@
 import { useCallback, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { assetUrl } from '../lib/assetUrl'
 import '../pages/HomePage.css'
 import './ShadePreview.css'
-
-const BASE = import.meta.env.BASE_URL
 
 const PREVIEW_STILLS = [
   'preview/movie-1.jpg',
@@ -97,7 +96,7 @@ export function ShadePreview() {
           )}
           <img
             className="screen__photo"
-            src={`${BASE}${still}`}
+            src={assetUrl(still)}
             alt="Sample streaming scene"
             draggable={false}
             onLoad={() => setLoaded(true)}

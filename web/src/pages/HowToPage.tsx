@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PlayStoreBadge } from '../components/PlayStoreBadge'
+import { assetUrl } from '../lib/assetUrl'
 import './HowToPage.css'
 
 type Step = {
@@ -62,7 +63,7 @@ export function HowToPage() {
     <div className="howto">
       <header className="howto__nav">
         <Link to="/" className="howto__mark">
-          <img src={`${import.meta.env.BASE_URL}icon.png`} alt="" width={28} height={28} />
+          <img src={assetUrl('icon.png')} alt="" width={28} height={28} />
           CineShade
         </Link>
         <nav className="howto__links">

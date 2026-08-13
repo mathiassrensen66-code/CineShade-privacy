@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
+import { assetUrl } from '../lib/assetUrl'
 import './ProductShots.css'
-
-const BASE = import.meta.env.BASE_URL
 
 /** Fixed 45% — static capture of DimmerAdjustActivity at default intensity. */
 const DEMO_PERCENT = 45
@@ -25,7 +24,7 @@ export function ProductAdjustShot() {
 
   return (
     <ProductPhone>
-      <img className="product-shot__stream" src={`${BASE}preview/movie-2.jpg`} alt="" />
+      <img className="product-shot__stream" src={assetUrl('preview/movie-2.jpg')} alt="" />
       <div
         className="product-shot__overlay"
         style={{ opacity: (DEMO_PERCENT / 100) * 0.98 }}
@@ -54,7 +53,7 @@ export function ProductAdjustShot() {
 export function ProductNotificationShot() {
   return (
     <ProductPhone className="product-phone--notif">
-      <img className="product-shot__stream product-shot__stream--dim" src={`${BASE}preview/movie-2.jpg`} alt="" />
+      <img className="product-shot__stream product-shot__stream--dim" src={assetUrl('preview/movie-2.jpg')} alt="" />
       <div className="product-shot__overlay" style={{ opacity: 0.44 }} aria-hidden="true" />
       <div className="product-shot__shade-drawer" aria-hidden="true">
         <div className="product-shot__shade-handle" />
@@ -79,7 +78,7 @@ export function ProductAppScreenshot() {
     <ProductPhone>
       <img
         className="product-shot__app"
-        src={`${BASE}showcase/step-1-app.png`}
+        src={assetUrl('showcase/step-1-app.png')}
         alt="CineShade app home screen"
       />
     </ProductPhone>
