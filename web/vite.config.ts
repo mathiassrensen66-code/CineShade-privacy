@@ -1,16 +1,11 @@
-import { defineConfig, type Plugin } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-
-function stripCrossOriginFromIndexHtml(): Plugin {
-  return {
-    name: 'strip-crossorigin-from-index-html',
-    transformIndexHtml(html) {
-      return html.replace(/\s+crossorigin(="anonymous")?/g, '')
-    },
-  }
-}
+import { viteSingleFile } from 'vite-plugin-singlefile'
 
 export default defineConfig({
-  plugins: [react(), stripCrossOriginFromIndexHtml()],
+  plugins: [react(), viteSingleFile()],
   base: '/',
+  build: {
+    cssCodeSplit: false,
+  },
 })
