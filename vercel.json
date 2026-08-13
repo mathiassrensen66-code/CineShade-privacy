@@ -2,46 +2,5 @@
   "installCommand": "cd web && npm ci",
   "buildCommand": "cd web && npm run build",
   "outputDirectory": "web/dist",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/assets/(.*)", "status": 404, "dest": "/404.html" },
-    { "src": "/static/(.*)", "status": 404, "dest": "/404.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "redirects": [
-    {
-      "source": "/CineShade-privacy/:path*",
-      "destination": "/:path*",
-      "permanent": true
-    }
-  ],
-  "headers": [
-    {
-      "source": "/",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/index.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/static/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ]
+  "rewrites": [{ "source": "/((?!assets/|preview/|cta/|showcase/|privacy\\.html|404\\.html|icon\\.png|google-play-badge\\.png|favicon\\.svg|icons\\.svg).*)", "destination": "/index.html" }]
 }
