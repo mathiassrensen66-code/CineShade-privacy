@@ -13,10 +13,11 @@ Source lives in `/web` (Vite + React).
 ## Deploy on Vercel
 
 1. Import this repo at [vercel.com/new](https://vercel.com/new)
-2. Set **Root Directory** to `web`
-3. Build settings (auto-detected):
-   - **Build command:** `npm run build`
-   - **Output directory:** `dist`
+2. Leave **Root Directory** at the repo root — root `vercel.json` builds `/web` automatically
+3. Build settings (from `vercel.json`):
+   - **Install:** `cd web && npm ci`
+   - **Build:** `cd web && npm run build`
+   - **Output:** `web/dist`
 4. Deploy
 
 ## Connect cineshade.app

@@ -1,0 +1,13 @@
+{
+  "installCommand": "cd web && npm ci",
+  "buildCommand": "cd web && npm run build",
+  "outputDirectory": "web/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "redirects": [
+    {
+      "source": "/CineShade-privacy/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ]
+}
