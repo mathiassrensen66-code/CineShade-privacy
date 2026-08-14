@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import {
   PRIVACY_LAST_UPDATED,
   PRIVACY_PACKAGE,
@@ -6,7 +6,7 @@ import {
   PRIVACY_PUBLIC_URL,
   PRIVACY_SITE_URL,
 } from '../content/privacyPolicy'
-import { assetUrl } from '../lib/assetUrl'
+import { icon } from '../assets/images'
 import './PrivacyPage.css'
 
 export function PrivacyPage() {
@@ -14,7 +14,7 @@ export function PrivacyPage() {
     <div className="privacy">
       <header className="privacy__nav">
         <Link to="/" className="privacy__mark">
-          <img src={assetUrl('icon.png')} alt="" width={28} height={28} />
+          <img src={icon} alt="" width={28} height={28} />
           CineShade
         </Link>
         <nav className="privacy__links">
@@ -36,7 +36,7 @@ export function PrivacyPage() {
 
         <h2>About CineShade</h2>
         <p>
-          CineShade (“the app”, “we”, “our”) is a local screen-dimming utility for Android, published
+          CineShade (â€œthe appâ€, â€œweâ€, â€œourâ€) is a local screen-dimming utility for Android, published
           as <code>{PRIVACY_PACKAGE}</code>. It draws a touch-through overlay so you can darken
           video and streaming apps when system brightness is locked by another app.
         </p>
@@ -65,11 +65,11 @@ export function PrivacyPage() {
         </p>
         <ul>
           <li>
-            <strong>Dimmer intensity</strong> — your chosen darkness level (a number between 0 and
+            <strong>Dimmer intensity</strong> â€” your chosen darkness level (a number between 0 and
             100%)
           </li>
           <li>
-            <strong>Armed state</strong> — whether you last turned the dimmer on for other apps
+            <strong>Armed state</strong> â€” whether you last turned the dimmer on for other apps
           </li>
         </ul>
         <p>
@@ -85,20 +85,20 @@ export function PrivacyPage() {
         <p>CineShade requests only what it needs to provide the dimmer:</p>
         <ul>
           <li>
-            <strong>Display over other apps</strong> (<code>SYSTEM_ALERT_WINDOW</code>) — draws the
+            <strong>Display over other apps</strong> (<code>SYSTEM_ALERT_WINDOW</code>) â€” draws the
             dim overlay above streaming and video apps. Required for the core feature.
           </li>
           <li>
-            <strong>Notifications</strong> (<code>POST_NOTIFICATIONS</code>) — shows a persistent
+            <strong>Notifications</strong> (<code>POST_NOTIFICATIONS</code>) â€” shows a persistent
             notification while the dimmer is armed so you can open the adjust panel or turn it off.
           </li>
           <li>
             <strong>Foreground service</strong> (<code>FOREGROUND_SERVICE</code>,{' '}
-            <code>FOREGROUND_SERVICE_SPECIAL_USE</code>) — keeps the overlay running reliably while
+            <code>FOREGROUND_SERVICE_SPECIAL_USE</code>) â€” keeps the overlay running reliably while
             you use other apps. Android requires a visible notification for this type of service.
           </li>
           <li>
-            <strong>Internet</strong> — may appear in the manifest because of the app framework
+            <strong>Internet</strong> â€” may appear in the manifest because of the app framework
             (Expo/React Native). CineShade does not use network access to collect or send personal
             data.
           </li>
@@ -141,13 +141,13 @@ export function PrivacyPage() {
         <p>
           Because no personal data is collected or transmitted, there is no remote database of user
           information to secure. Local preference data is protected by Android&apos;s standard app
-          sandbox — only CineShade can access its own storage on your device.
+          sandbox â€” only CineShade can access its own storage on your device.
         </p>
 
         <h2>Your choices</h2>
         <ul>
-          <li>Deny overlay permission — the dimmer cannot run over other apps</li>
-          <li>Deny notifications — you may lose quick access to adjust or turn off the dimmer</li>
+          <li>Deny overlay permission â€” the dimmer cannot run over other apps</li>
+          <li>Deny notifications â€” you may lose quick access to adjust or turn off the dimmer</li>
           <li>Turn the dimmer off at any time from the notification or inside the app</li>
           <li>Uninstall the app to remove all locally stored preferences</li>
         </ul>
@@ -176,3 +176,4 @@ export function PrivacyPage() {
     </div>
   )
 }
+

@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { assetUrl } from '../lib/assetUrl'
+﻿import { useState } from 'react'
+import { movie2 } from '../assets/images'
 import './InStreamDemo.css'
 
-const STREAM_STILL = assetUrl('preview/movie-2.jpg')
+const STREAM_STILL = movie2
 const MAX_SHADE = 0.98
 
 type InStreamDemoProps = {
@@ -23,7 +23,7 @@ export function InStreamDemo({ compact = false }: InStreamDemoProps) {
         <div className="in-stream__intro">
           <p className="in-stream__kicker">This is the real experience</p>
           <p className="in-stream__hint">
-            Drag the slider in the panel — same UI you get when you tap the CineShade notification
+            Drag the slider in the panel â€” same UI you get when you tap the CineShade notification
             over Netflix, YouTube, or any streaming app.
           </p>
         </div>
@@ -34,7 +34,7 @@ export function InStreamDemo({ compact = false }: InStreamDemoProps) {
           <div className="phone__screen">
             <div className="phone__status" aria-hidden="true">
               <span>10:42</span>
-              <span className="phone__status-icons">▮▮▮ 🔋</span>
+              <span className="phone__status-icons">â–®â–®â–® ðŸ”‹</span>
             </div>
 
             <div className="stream-player">
@@ -43,30 +43,30 @@ export function InStreamDemo({ compact = false }: InStreamDemoProps) {
 
               <div className="stream-player__chrome" aria-hidden="true">
                 <div className="stream-player__top">
-                  <span className="stream-player__back">←</span>
+                  <span className="stream-player__back">â†</span>
                   <div>
                     <p className="stream-player__show">Sample series</p>
-                    <p className="stream-player__episode">S1 · E3 — Late shift</p>
+                    <p className="stream-player__episode">S1 Â· E3 â€” Late shift</p>
                   </div>
                 </div>
                 <div className="stream-player__progress">
                   <div className="stream-player__bar" style={{ width: '38%' }} />
                 </div>
                 <div className="stream-player__controls">
-                  <span>⏪</span>
-                  <span className="stream-player__play">▶</span>
-                  <span>⏩</span>
+                  <span>âª</span>
+                  <span className="stream-player__play">â–¶</span>
+                  <span>â©</span>
                 </div>
               </div>
 
               <div className="stream-player__notif" aria-hidden="true">
-                CineShade · {percent}% dark · Tap to adjust
+                CineShade Â· {percent}% dark Â· Tap to adjust
               </div>
 
               <div className="adjust-scrim" aria-hidden="true" />
               <div className="adjust-panel">
                 <p className="adjust-panel__brand">CineShade</p>
-                <p className="adjust-panel__sub">Drag the slider — tap outside when done</p>
+                <p className="adjust-panel__sub">Drag the slider â€” tap outside when done</p>
                 <p className="adjust-panel__percent">{percent}%</p>
                 <label className="adjust-panel__slider">
                   <span className="visually-hidden">Adjust darkness</span>
@@ -98,9 +98,10 @@ export function InStreamDemo({ compact = false }: InStreamDemoProps) {
 
       {!compact && (
         <p className="in-stream__caption">
-          Generic streaming player shown — CineShade works the same over any app.
+          Generic streaming player shown â€” CineShade works the same over any app.
         </p>
       )}
     </div>
   )
 }
+

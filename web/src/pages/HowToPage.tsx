@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { PlayStoreBadge } from '../components/PlayStoreBadge'
-import { assetUrl } from '../lib/assetUrl'
+import { icon } from '../assets/images'
 import './HowToPage.css'
 
 type Step = {
@@ -14,7 +14,7 @@ const STEPS: readonly Step[] = [
   {
     n: 1,
     title: 'Install CineShade',
-    body: 'Get the app from Google Play. No account needed — everything runs on your phone.',
+    body: 'Get the app from Google Play. No account needed â€” everything runs on your phone.',
   },
   {
     n: 2,
@@ -23,7 +23,7 @@ const STEPS: readonly Step[] = [
     detail: [
       'Open CineShade and tap Grant "display over other apps".',
       'On the system screen, find CineShade and turn on Allow display over other apps.',
-      'If you do not see the prompt: Settings → Apps → CineShade → Display over other apps → Allow.',
+      'If you do not see the prompt: Settings â†’ Apps â†’ CineShade â†’ Display over other apps â†’ Allow.',
     ],
   },
   {
@@ -39,7 +39,7 @@ const STEPS: readonly Step[] = [
   {
     n: 5,
     title: 'Arm the dimmer',
-    body: 'Tap Arm dimmer for other apps. The button turns green — CineShade is ready, but the overlay only appears after you leave the app.',
+    body: 'Tap Arm dimmer for other apps. The button turns green â€” CineShade is ready, but the overlay only appears after you leave the app.',
   },
   {
     n: 6,
@@ -49,7 +49,7 @@ const STEPS: readonly Step[] = [
   {
     n: 7,
     title: 'Adjust from the notification',
-    body: 'Pull down notifications and tap the CineShade entry once. A slider panel opens at the bottom of the screen — the same UI as in the demo on our home page.',
+    body: 'Pull down notifications and tap the CineShade entry once. A slider panel opens at the bottom of the screen â€” the same UI as in the demo on our home page.',
     detail: [
       'Drag the slider, or tap Darker / Lighter.',
       'Tap Done to close the panel and keep watching.',
@@ -63,7 +63,7 @@ export function HowToPage() {
     <div className="howto">
       <header className="howto__nav">
         <Link to="/" className="howto__mark">
-          <img src={assetUrl('icon.png')} alt="" width={28} height={28} />
+          <img src={icon} alt="" width={28} height={28} />
           CineShade
         </Link>
         <nav className="howto__links">
@@ -103,11 +103,11 @@ export function HowToPage() {
           <h2>Why these permissions?</h2>
           <ul>
             <li>
-              <strong>Display over other apps</strong> — draws the dim overlay above streaming
+              <strong>Display over other apps</strong> â€” draws the dim overlay above streaming
               players. Without it, CineShade cannot darken the picture.
             </li>
             <li>
-              <strong>Notifications / foreground service</strong> — keeps the dimmer running in the
+              <strong>Notifications / foreground service</strong> â€” keeps the dimmer running in the
               background and gives you a quick way to adjust or turn off.
             </li>
           </ul>
@@ -121,15 +121,15 @@ export function HowToPage() {
           <h2>Troubleshooting</h2>
           <ul>
             <li>
-              <strong>Overlay does not appear</strong> — confirm display-over-other-apps is allowed,
+              <strong>Overlay does not appear</strong> â€” confirm display-over-other-apps is allowed,
               the dimmer is armed, and you have left CineShade for your streaming app.
             </li>
             <li>
-              <strong>Screen is too dark or too bright</strong> — tap the CineShade notification to
+              <strong>Screen is too dark or too bright</strong> â€” tap the CineShade notification to
               reopen the slider panel.
             </li>
             <li>
-              <strong>Want to stop dimming</strong> — tap Turn off in the notification, or open
+              <strong>Want to stop dimming</strong> â€” tap Turn off in the notification, or open
               CineShade and disarm the dimmer.
             </li>
           </ul>
@@ -142,3 +142,4 @@ export function HowToPage() {
     </div>
   )
 }
+

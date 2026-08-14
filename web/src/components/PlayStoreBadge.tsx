@@ -1,8 +1,8 @@
-import { assetUrl } from '../lib/assetUrl'
+﻿import { googlePlayBadge } from '../assets/images'
 import './PlayStoreBadge.css'
 
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.cineshade.app'
-const BADGE = assetUrl('google-play-badge.png')
+const BADGE = googlePlayBadge
 
 type PlayStoreBadgeProps = {
   size?: 'nav' | 'default' | 'large'
@@ -22,3 +22,4 @@ export function PlayStoreBadge({ size = 'default', className = '' }: PlayStoreBa
     </a>
   )
 }
+

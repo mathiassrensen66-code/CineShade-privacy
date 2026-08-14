@@ -1,25 +1,13 @@
-import { useCallback, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
-import { assetUrl } from '../lib/assetUrl'
+﻿import { useCallback, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { PREVIEW_STILL_URLS, type PreviewStillUrl } from '../assets/images'
 import '../pages/HomePage.css'
 import './ShadePreview.css'
-
-const PREVIEW_STILLS = [
-  'preview/movie-1.jpg',
-  'preview/movie-2.jpg',
-  'preview/movie-3.jpg',
-  'preview/movie-4.jpg',
-  'preview/cinema-1.jpg',
-  'preview/cinema-2.jpg',
-  'preview/cinema-3.jpg',
-] as const
-
-type PreviewStill = (typeof PREVIEW_STILLS)[number]
 
 const MAX_SHADE = 0.98
 const DEFAULT_DIM = 0.45
 
-function pickStill(exclude?: PreviewStill): PreviewStill {
-  const pool = exclude ? PREVIEW_STILLS.filter((s) => s !== exclude) : PREVIEW_STILLS
+function pickStill(exclude?: PreviewStillUrl): PreviewStillUrl {
+  const pool = exclude ? PREVIEW_STILL_URLS.filter((s) => s !== exclude) : PREVIEW_STILL_URLS
   return pool[Math.floor(Math.random() * pool.length)]
 }
 
@@ -28,14 +16,12 @@ function clampDim(value: number) {
 }
 
 export function ShadePreview() {
-  const [still, setStill] = useState<PreviewStill>(PREVIEW_STILLS[0])
+  const [still, setStill] = useState<PreviewStillUrl>(PREVIEW_STILL_URLS[0])
   const [dim, setDim] = useState(DEFAULT_DIM)
-  const [loaded, setLoaded] = useState(false)
   const frameRef = useRef<HTMLDivElement>(null)
   const dragging = useRef(false)
 
   const shuffle = useCallback(() => {
-    setLoaded(false)
     setStill((current) => pickStill(current))
   }, [])
 
@@ -44,7 +30,6 @@ export function ShadePreview() {
     if (!frame) return
     const rect = frame.getBoundingClientRect()
     const y = clientY - rect.top
-    // Top = lighter, bottom = darker — same idea as pulling a cinema dimmer down
     const level = clampDim(y / rect.height)
     setDim(level)
   }, [])
@@ -89,17 +74,11 @@ export function ShadePreview() {
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
         >
-          {!loaded && (
-            <div className="screen__loading" aria-hidden="true">
-              Loading preview…
-            </div>
-          )}
           <img
             className="screen__photo"
-            src={assetUrl(still)}
+            src={still}
             alt="Sample streaming scene"
             draggable={false}
-            onLoad={() => setLoaded(true)}
           />
           <div className="screen__haze" aria-hidden="true" />
           <div className="screen__meta">

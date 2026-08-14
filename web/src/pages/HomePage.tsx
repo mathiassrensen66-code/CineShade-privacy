@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { assetUrl } from '../lib/assetUrl'
+﻿import { Link } from 'react-router-dom'
+import { cinema1, cinema2, cinema3, icon, movie1, movie2, movie3 } from '../assets/images'
 import {
   ProductAdjustShot,
   ProductAppScreenshot,
@@ -18,7 +18,7 @@ const ACTS = [
   {
     act: 'II',
     title: 'Set the shade',
-    text: 'Dial darkness until the picture feels right — without touching the app’s brightness lock.',
+    text: 'Dial darkness until the picture feels right â€” without touching the appâ€™s brightness lock.',
   },
   {
     act: 'III',
@@ -28,12 +28,12 @@ const ACTS = [
 ] as const
 
 const STREAMING_APPS = [
-  { name: 'Netflix', image: 'preview/cinema-1.jpg' },
-  { name: 'YouTube', image: 'preview/cinema-2.jpg' },
-  { name: 'Disney+', image: 'preview/cinema-3.jpg' },
-  { name: 'Prime Video', image: 'preview/movie-1.jpg' },
-  { name: 'HBO Max', image: 'preview/movie-2.jpg' },
-  { name: 'Crunchyroll', image: 'preview/movie-3.jpg' },
+  { name: 'Netflix', image: cinema1 },
+  { name: 'YouTube', image: cinema2 },
+  { name: 'Disney+', image: cinema3 },
+  { name: 'Prime Video', image: movie1 },
+  { name: 'HBO Max', image: movie2 },
+  { name: 'Crunchyroll', image: movie3 },
 ] as const
 
 const APP_SHOTS = [
@@ -41,13 +41,13 @@ const APP_SHOTS = [
     step: '01',
     shot: 'app' as const,
     title: 'Set your shade',
-    text: 'Real CineShade app — preview darkness, then tap Arm dimmer for other apps.',
+    text: 'Real CineShade app â€” preview darkness, then tap Arm dimmer for other apps.',
   },
   {
     step: '02',
     shot: 'adjust' as const,
     title: 'Adjust over your stream',
-    text: 'Exact adjust panel from the app — opens when you tap the CineShade notification.',
+    text: 'Exact adjust panel from the app â€” opens when you tap the CineShade notification.',
   },
   {
     step: '03',
@@ -65,7 +65,7 @@ export function HomePage() {
 
       <header className="cinema__nav">
         <Link to="/" className="cinema__logo">
-          <img src={assetUrl('icon.png')} alt="" width={30} height={30} />
+          <img src={icon} alt="" width={30} height={30} />
           <span>CineShade</span>
         </Link>
         <nav className="cinema__links">
@@ -86,7 +86,7 @@ export function HomePage() {
           </h1>
           <p className="auditorium__tagline">
             When streaming apps lock brightness, CineShade draws a touch-through veil over the
-            screen — so late-night watching stays easy on your eyes.
+            screen â€” so late-night watching stays easy on your eyes.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export function HomePage() {
 
         <div className="auditorium__cta">
           <PlayStoreBadge size="large" />
-          <p className="auditorium__note">No account · Local only · Android</p>
+          <p className="auditorium__note">No account Â· Local only Â· Android</p>
         </div>
       </main>
 
@@ -105,7 +105,7 @@ export function HomePage() {
           <p className="streaming__kicker">Works everywhere you watch</p>
           <h2>Any streaming app. One dimmer.</h2>
           <p className="streaming__lead">
-            CineShade sits on top of whatever is playing — Netflix, YouTube, Disney+, Prime Video,
+            CineShade sits on top of whatever is playing â€” Netflix, YouTube, Disney+, Prime Video,
             and anything else that locks system brightness.
           </p>
         </div>
@@ -113,7 +113,7 @@ export function HomePage() {
         <ul className="streaming__grid">
           {STREAMING_APPS.map(({ name, image }) => (
             <li key={name} className="streaming__card">
-              <img src={assetUrl(image)} alt="" loading="lazy" />
+              <img src={image} alt="" loading="lazy" />
               <div className="streaming__card-veil" aria-hidden="true" />
               <span className="streaming__card-name">{name}</span>
             </li>
@@ -174,7 +174,7 @@ export function HomePage() {
       <footer className="credits">
         <div className="credits__row">
           <div className="credits__brand">
-            <img src={assetUrl('icon.png')} alt="" width={22} height={22} />
+            <img src={icon} alt="" width={22} height={22} />
             CineShade
           </div>
           <p>Touch-through overlay dimmer for Android</p>
@@ -184,3 +184,4 @@ export function HomePage() {
     </div>
   )
 }
+

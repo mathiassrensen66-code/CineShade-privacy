@@ -1,12 +1,5 @@
 {
   "installCommand": "cd web && npm ci",
   "buildCommand": "cd web && npm run build",
-  "outputDirectory": "web/dist",
-  "rewrites": [
-    { "source": "/((?!preview/|cta/|showcase/|privacy\\.html|404\\.html|icon\\.png|google-play-badge\\.png|favicon\\.svg|icons\\.svg).*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    { "source": "/", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
-    { "source": "/index.html", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] }
-  ]
+  "outputDirectory": "web/dist"
 }
